@@ -1,0 +1,28 @@
+<<<<<<< HEAD
+<router-outlet></router-outlet>
+=======
+<nav class="navbar" style="margin-bottom: 0px; background-color: aliceblue;" *ngIf = "disableNavBar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">KLINICKI CENTAR</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+
+          <li><a *ngIf="!prijavljen" [routerLink]="['/registracija']"><span class="glyphicon glyphicon-user"></span> Registruj se</a></li>
+          <li><a *ngIf="!prijavljen" [routerLink]="['/login']"><span class="glyphicon glyphicon-log-in"></span> Prijavi se</a></li>
+          <li><a *ngIf="prijavljen" (click)="odjaviSe()" ><span class="glyphicon glyphicon-log-out"></span> Odjavi se</a></li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+
+	<router-outlet></router-outlet>
+>>>>>>> 140683db2bbb6ea77680a34d1f63e826f890d2bb

@@ -1,0 +1,77 @@
+<app-menu></app-menu>
+<div class="container">
+  <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-login">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-12">
+            <a id="register-form-link">Registracija</a>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <form id="register-form" method="post" role="form"  #formRegister="ngForm" style="display: block;" novalidate (ngSubmit)="register()">
+              <div class="form-group">
+                <input type="email" minlength="10" maxlength="60" [(ngModel)]="korisnik.email" #email="ngModel" name="email" id="email" class="form-control" placeholder="Email adresa" value="">
+                <small [hidden]="email.valid || (email.pristine && !formRegister.submitted)"  class="text-danger">
+                 Email je obavezno polje i mora biti jedinstven(minimum 10 a maksimum 60 karaktera)
+                 </small>
+                 <small [hidden]="mailNijeJedinstven"  class="text-danger">
+                  Email adresa koje ste uneli je vec registrovana. Ulogujte se sa njom ili unesite drugu email adresu.
+                  </small>
+              </div>
+              <div class="form-group">
+                <input type="password" minlength="3" maxlength="30" [(ngModel)]="korisnik.lozinka" name="password" id="password" class="form-control" placeholder="Lozinka"   #password="ngModel" minlength="3">       
+                <small [hidden]="password.valid || (password.pristine && !formRegister.submitted)" class="text-danger">
+                  Lozinka je obavezna (minimum 3 karaktera a maksimum 30 karaktera).
+                </small>
+              </div>
+              <div class="form-group">
+                <input type="password" [(ngModel)]="korisnik.potvrdaLozinke" name="confirmPassword" id="confirmPassword" class="form-control" placeholder="Potvrda lozinke" required #confirmPassword="ngModel">
+                <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !formRegister.submitted)" class="text-danger">
+                  Lozinke nisu iste
+                </small>
+              </div>
+              <div class="form-group">
+                <input type="text" minlength="3"  maxlength="30" #uname="ngModel" [(ngModel)]="korisnik.ime" name="ime" id="ime"  class="form-control" placeholder="Ime" value="">
+                <small [hidden]="uname.valid || (uname.pristine && !formRegister.submitted)"  class="text-danger">
+                 Ime je obavezno polje(minimum 3 a maksimum 30 karaktera)
+                </small>
+              </div>
+              <div class="form-group">
+                <input type="text" minlength="3"  maxlength="30" #lastName="ngModel" [(ngModel)]="korisnik.prezime" name="prezime" id="prezime"  class="form-control" placeholder="Prezime">
+                <small [hidden]="lastName.valid || (lastName.pristine && !formRegister.submitted)"  class="text-danger">
+                  Prezime je obavezno polje(minimum 3 a maksimum 30 karaktera)
+                 </small>
+              </div>
+              <div class="form-group">
+                <input type="text"  minlength="3" maxlength="30" #mesto="ngModel" [(ngModel)]="korisnik.mesto" name="mesto" id="mesto"  class="form-control" placeholder="Grad">
+                <small [hidden]="mesto.valid || (mesto.pristine && !formRegister.submitted)"  class="text-danger">
+                  Mesto je obavezno polje(minimum 3 a maksimum 30 karaktera)
+                 </small>
+              </div>
+              <div class="form-group">
+                <input type="text" [(ngModel)]="korisnik.brojTelefona" minlength="6" maxlength="15"  #brojTelefona="ngModel" name="brojTelefona" id="brojTelefona"  class="form-control" placeholder="Broj telefona">
+                <small [hidden]="brojTelefona.valid || (brojTelefona.pristine && !formRegister.submitted)"  class="text-danger">
+                  Broj telefona je obavezno polje(minimum 6 a maksimum 15 karaktera)
+                 </small>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-6 col-sm-offset-3">
+                    <input type="submit" [disabled]="!formRegister.valid" name="register-submit" id="register-submit" class="form-control btn btn-login" value="Registruj se">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

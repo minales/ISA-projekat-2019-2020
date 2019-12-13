@@ -1,0 +1,29 @@
+<app-menu></app-menu>
+<div class="container" style="display: flex; justify-content: center;">
+  <div class="col-md-5 form">
+      <div class="form-area">
+          <form role="form">
+              <br style="clear:both">
+              <h3 style="margin-bottom: 25px; text-align: center;">Azuriranje profila</h3>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="ime" name="ime" placeholder="Ime" required [(ngModel)] = "korisnik.ime">
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="prezime" name="prezime" placeholder="Prezime" required [(ngModel)] = "korisnik.prezime">
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="email" name="email" placeholder="Email" required [(ngModel)] = "korisnik.email" >
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="mesto" name="mesto" placeholder="Mesto" required [(ngModel)] = "korisnik.grad" >
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="brojTelefona" name="brojTelefona" placeholder="Broj telefona" required [(ngModel)] = "korisnik.telefon">
+              </div>
+              <a (click)="goToChangePassword()" >Promeni lozinku</a>
+              <button type="button" id="azuriraj" name="submit" class="btn btn-primary pull-right" (click) = "update()" >Azuriraj</button>
+
+          </form>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<app-menu></app-menu>
+<div class="container">
+  <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-login">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-12">
+            <a id="login-form-link">Prijava</a>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <form id="login-form" #formLogin="ngForm"  (ngSubmit)="login()" method="post" role="form" style="display: block;">
+              <div class="form-group">
+                <input type="email"  minlength="10" maxlength="60" #email="ngModel" [(ngModel)]="korisnik.email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email adresa" value="">
+                <small [hidden]="email.valid || (email.pristine && !formLogin.submitted)" class="text-danger">
+                  Email nije u validnom formatu(minimum 10 a maksimum 60 karaktera)
+                </small>
+              </div>
+              <div class="form-group">
+                <input type="password" minlength="3" maxlength="30" #password="ngModel" [(ngModel)]="korisnik.lozinka" name="lozinka" id="lozinka" tabindex="2" class="form-control" placeholder="Lozinka">
+                <small [hidden]="password.valid || (password.pristine && !formLogin.submitted)" class="text-danger">
+                  Lozinka je nije u validnom foramtu (minimum 3 karaktera a maksimum 30 karaktera).
+                </small>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-6 col-sm-offset-3">
+                    <input type="submit" [disabled]="!formLogin.valid" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Prijavi se">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div *ngIf="nijeAktiviranMail">
+                      <p>Nije aktiviran mail</p>
+                    </div>
+                    <div *ngIf="losiKredencijali">
+                      <p>Losi kredencijali</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
